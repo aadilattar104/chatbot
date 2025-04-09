@@ -1,13 +1,15 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import { useAuth } from "../components/AuthProvider"
+import { ThemeContext } from "../App"
 import Chatbot from "../components/chatbot"
 import "../styles/dashboard.css"
 
 export default function Dashboard() {
   const { currentUser, logout } = useAuth()
+  const { isDarkMode, toggleTheme } = useContext(ThemeContext)
   const navigate = useNavigate()
   const [showWelcome, setShowWelcome] = useState(true)
 
@@ -41,9 +43,14 @@ export default function Dashboard() {
     <div className="dashboard-container">
       <header className="dashboard-header">
         <h1>Gemini AI Chatbot</h1>
-        <button onClick={handleLogout} className="logout-button">
-          Logout
-        </button>
+        <div className="header-controls">
+          <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle dark mode">
+            {isDarkMode ? "☀️" : "🌙"}
+          </button>
+          <button onClick={handleLogout} className="logout-button">
+            Logout
+          </button>
+        </div>
       </header>
 
       {showWelcome && (
