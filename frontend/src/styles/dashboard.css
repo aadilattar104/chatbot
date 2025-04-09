@@ -1,0 +1,121 @@
+.dashboard-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f1f5f9;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  z-index: 10; /* Ensure header stays above other content */
+}
+
+.dashboard-header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+}
+
+.logout-button {
+  padding: 0.5rem 1rem;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: background-color 0.2s;
+}
+
+.logout-button:hover {
+  background-color: #d32f2f;
+}
+
+.welcome-message.text-book {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  z-index: 100;
+  animation: fadeIn 0.5s, fadeOut 0.5s 4.5s;
+  max-width: 500px;
+  width: 90%;
+  border-left: 5px solid #4a90e2;
+}
+
+.welcome-message.text-book h2 {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.welcome-message.text-book p {
+  color: #34495e;
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.success-message {
+  color: #27ae60 !important;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  background-color: #e7f9ef;
+  border-radius: 4px;
+}
+
+.chatbot-container {
+  flex: 1;
+  padding: 0.5rem; /* Reduced padding to maximize chatbot space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dashboard-header {
+    padding: 0.75rem 1rem;
+  }
+
+  .chatbot-container {
+    padding: 0.5rem;
+  }
+
+  .welcome-message.text-book {
+    width: 90%;
+    padding: 1.5rem;
+  }
+}
